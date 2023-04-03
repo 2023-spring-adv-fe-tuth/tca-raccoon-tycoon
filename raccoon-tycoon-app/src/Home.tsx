@@ -1,10 +1,17 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { useNavigate } from 'react-router-dom';
 
 export const Home = () => {
+
+    const nav = useNavigate();
+
     return (
         <>
-        <Button variant="primary">
+        <Button 
+            variant="primary"
+            onClick={() => nav("/setup")}    
+        >
             Select Players
         </Button>{' '}
         <Card className="mt-3">
