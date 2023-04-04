@@ -1,16 +1,64 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { Home } from './Home';
 import { Setup } from './Setup';
 import { Finish } from './Finish';
+import { GameResult, CalculateLeaderboardFunc, calculateLeaderboard } from './front-end-model';
 
 import { HashRouter, Routes, Route } from 'react-router-dom';
+import { useState } from 'react';
+
+const hardcodedGameResults: GameResult[] = [
+  {
+      winner: "Tom"
+      , players: ["Tom", "Taylor"]
+      , start: "2023-03-22T20:40:00.000Z"
+      , end: "2023-03-22T20:45:30.000Z"
+  }
+  , {
+      winner: "Taylor"
+      , players: ["Jack", "Taylor"]
+      , start: "2023-03-22T20:40:00.000Z"
+      , end: "2023-03-22T20:42:00.000Z"
+  }
+  , {
+      winner: "Taylor"
+      , players: ["Tom", "Taylor", "Jack"]
+      , start: "2023-03-22T20:40:00.000Z"
+      , end: "2023-03-22T20:47:00.000Z"
+  }
+  , {
+      winner: "X"
+      , players: ["X", "Joe"]
+      , start: "2023-03-22T20:40:00.000Z"
+      , end: "2023-03-22T20:41:48.000Z"
+  }
+  , {
+      winner: "X"
+      , players: ["X", "Joe"]
+      , start: "2023-03-22T20:40:00.000Z"
+      , end: "2023-03-22T20:50:00.000Z"
+  }
+  , {
+      winner: "Joe"
+      , players: ["X", "Joe"]
+      , start: "2023-03-22T20:40:00.000Z"
+      , end: "2023-03-22T20:43:12.000Z"
+  }
+  , {
+      winner: "Jack"
+      , players: ["X", "Joe", "Jack"]
+      , start: "2023-03-22T20:40:00.000Z"
+      , end: "2023-03-22T20:47:13.000Z"
+  }
+];
 
 
-function App() {
+const App = () => {
+
+  const [results, setGameResults] = useState(hardcodedGameResults);
+
   return (
     <div className="App m-3">
       <h1>
@@ -22,7 +70,14 @@ function App() {
       <hr />
       <HashRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route 
+            path="/" 
+            element={
+              <Home
+                leaderboardData={calculateLeaderboard(results)}
+              />
+            } 
+          />
           <Route path="/setup" element={<Setup />} />
           <Route path="/finish" element={<Finish />} />
         </Routes>
