@@ -59,6 +59,13 @@ const App = () => {
 
   const [results, setGameResults] = useState(hardcodedGameResults);
 
+  const addGameResult = (r: GameResult) => {
+    setGameResults([
+      ...results 
+      , r
+    ]);
+  };
+
   return (
     <div className="App m-3">
       <h1>
@@ -79,7 +86,14 @@ const App = () => {
             } 
           />
           <Route path="/setup" element={<Setup />} />
-          <Route path="/finish" element={<Finish />} />
+          <Route 
+            path="/finish" 
+            element={
+              <Finish
+              addGameResultFunc={addGameResult} 
+              />
+            } 
+          />
         </Routes>
       </HashRouter>
     </div>
