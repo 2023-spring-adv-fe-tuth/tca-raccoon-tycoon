@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Home } from './Home';
 import { Setup } from './Setup';
 import { Finish } from './Finish';
-import { GameResult, CalculateLeaderboardFunc, calculateLeaderboard } from './front-end-model';
+import { GameResult, CalculateLeaderboardFunc, calculateLeaderboard, getPreviousPlayers } from './front-end-model';
 
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
@@ -59,6 +59,11 @@ const App = () => {
 
   const [results, setGameResults] = useState(hardcodedGameResults);
 
+  const [setupInfo, setSetupInfo] = useState<SetupInfo>({
+    start: " "
+    , chosenPlayers: []
+  });
+
   const addGameResult = (r: GameResult) => {
     setGameResults([
       ...results 
@@ -85,12 +90,21 @@ const App = () => {
               />
             } 
           />
-          <Route path="/setup" element={<Setup />} />
+          <Route 
+            path="/setup" 
+            element={
+              <Setup
+                previousPlayers={getPreviousPlayers(results)}
+                setSetupInfo={setSetupInfo}     
+              />
+            } 
+          />
           <Route 
             path="/finish" 
             element={
               <Finish
-              addGameResultFunc={addGameResult} 
+              addGameResultFunc={addGameResult}
+              setupInfo={setupInfo} 
               />
             } 
           />
