@@ -66,12 +66,6 @@ export const Setup: React.FC<SetupProps> = ({
         <>
             <h2>Setup</h2>
             <p>Add new player/select new player</p>
-            <Button 
-                variant="primary"
-                onClick={recordGame}    
-            >
-                Record Game
-            </Button>{' '}
 
             <Form className = "mt-5">
                 <Form.Group className="mb-3">
@@ -98,6 +92,13 @@ export const Setup: React.FC<SetupProps> = ({
                     ))
                 }
             </Form>
+
+            <Button 
+                variant="primary"
+                onClick={recordGame}    
+            >
+                Record Game
+            </Button>{' '}
         </>
     );
 };
