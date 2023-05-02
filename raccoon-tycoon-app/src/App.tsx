@@ -34,7 +34,7 @@ const App = () => {
     , chosenPlayers: []
   });
 
-  const [emailKey, setEmailKey] = useState("");
+  const [emailKeyInput, setEmailKeyInput] = useState("");
 
   //useEffect hook
   useEffect(
@@ -43,7 +43,7 @@ const App = () => {
       const loadEmailKey = async () => {
       
         try {
-          setEmailKey(
+          setEmailKeyInput(
             await localforage.getItem("emailKey") ?? ""
           );
         }
@@ -70,7 +70,7 @@ const App = () => {
     try {
       await localforage.setItem(
         "emailKey"
-        , emailKey
+        , emailKeyInput
       );
     }
     catch (err) {
@@ -93,8 +93,8 @@ const App = () => {
           <Form.Control 
             type="text"
             placeholder="User email address"
-            value={emailKey}
-            onChange={(e) => setEmailKey(e.target.value)} 
+            value={emailKeyInput}
+            onChange={(e) => setEmailKeyInput(e.target.value)} 
           />
             <Button
               onClick={saveEmailKey}
