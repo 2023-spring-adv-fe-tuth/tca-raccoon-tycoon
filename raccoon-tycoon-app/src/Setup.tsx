@@ -64,8 +64,8 @@ export const Setup: React.FC<SetupProps> = ({
 
     return (
         <>
-            <h2>Setup</h2>
-            <p>Add new player/select new player</p>
+            <h2>Players</h2>
+            <p>Add new player/select player</p>
 
             <Form className = "mt-5">
                 <Form.Group className="mb-3">
