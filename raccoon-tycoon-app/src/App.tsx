@@ -35,6 +35,7 @@ const App = () => {
   });
 
   const [emailKeyInput, setEmailKeyInput] = useState("");
+  const [emailKeySaved, setEmailKeySaved] = useState("");
 
   //useEffect hook
   useEffect(
@@ -43,9 +44,11 @@ const App = () => {
       const loadEmailKey = async () => {
       
         try {
-          setEmailKeyInput(
-            await localforage.getItem("emailKey") ?? ""
-          );
+
+          const ek = String(await localforage.getItem("emailKey")) ?? "";
+
+          setEmailKeyInput(ek);
+          setEmailKeySaved(ek);
         }
         catch (err) {
           console.error(err);
@@ -72,6 +75,8 @@ const App = () => {
         "emailKey"
         , emailKeyInput
       );
+
+      setEmailKeySaved(emailKeyInput);
     }
     catch (err) {
       console.error(err);
