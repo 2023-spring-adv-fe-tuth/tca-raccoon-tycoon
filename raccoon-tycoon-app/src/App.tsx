@@ -23,6 +23,8 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import localforage from 'localforage';
 
+import { saveGameToCloud, loadGamesFromCloud } from './tca-cloud-api';
+
 
 const App = () => {
 
@@ -63,6 +65,16 @@ const App = () => {
 
   //Helper functions
   const addGameResult = (r: GameResult) => {
+
+    //Save game result to cloud.
+    saveGameToCloud(
+      emailKeySaved
+      , "tca-raccoon-tycoon"
+      , r.end
+      , r
+    );
+
+    //Optimistically update the lifted app state.
     setGameResults([
       ...results 
       , r
