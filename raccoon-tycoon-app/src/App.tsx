@@ -9,7 +9,8 @@ import {
   GameResult
   , CalculateLeaderboardFunc
   , calculateLeaderboard
-  , getPreviousPlayers 
+  , getPreviousPlayers
+  , SetupInfo 
 } from './front-end-model';
 
 import { 
@@ -43,23 +44,41 @@ const App = () => {
   useEffect(
     () => {
 
-      const loadEmailKey = async () => {
+      const loadEmailKeyAndGameResults = async () => {
       
         try {
 
           const ek = String(await localforage.getItem("emailKey")) ?? "";
 
+          if (ek.length > 0) {
+
+            const resultsFromCloud = await loadGamesFromCloud(
+              ek
+              , "tca-raccoon-tycoon"
+            );
+
+            if (!ignore) {
+              setGameResults(resultsFromCloud);
+            }
+          }
+
+          if(!ignore) {
           setEmailKeyInput(ek);
           setEmailKeySaved(ek);
+          }
         }
         catch (err) {
           console.error(err);
         }
       };
  
-      loadEmailKey();
+      let ignore = false;
+      loadEmailKeyAndGameResults();
+      return () => {
+        ignore = true;
+      };
     }
-    , []
+    , [emailKeySaved]
   );
 
 
