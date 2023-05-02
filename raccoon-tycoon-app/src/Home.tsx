@@ -20,7 +20,7 @@ export const Home: React.FC<HomeProps> = ({leaderboardData}) => {
             variant="primary"
             onClick={() => nav("/setup")}    
         >
-            Record Game Results
+            Select Players
         </Button>{' '}
         <Card className="mt-3 overflow-hidden">
             <Card.Header>

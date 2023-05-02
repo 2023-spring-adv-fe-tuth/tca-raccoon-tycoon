@@ -9,8 +9,7 @@ import {
   GameResult
   , CalculateLeaderboardFunc
   , calculateLeaderboard
-  , getPreviousPlayers
-  , SetupInfo 
+  , getPreviousPlayers 
 } from './front-end-model';
 
 import { 
@@ -56,10 +55,7 @@ const App = () => {
               ek
               , "tca-raccoon-tycoon"
             );
-
-            if (!ignore) {
-              setGameResults(resultsFromCloud);
-            }
+            
           }
 
           if(!ignore) {
@@ -78,7 +74,7 @@ const App = () => {
         ignore = true;
       };
     }
-    , [emailKeySaved]
+    , []
   );
 
 
