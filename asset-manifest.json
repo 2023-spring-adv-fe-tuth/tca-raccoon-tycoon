@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/tca-raccoon-tycoon/static/css/main.8dbc2d21.css",
+    "main.js": "/tca-raccoon-tycoon/static/js/main.56f6c785.js",
+    "static/js/787.54130e15.chunk.js": "/tca-raccoon-tycoon/static/js/787.54130e15.chunk.js",
+    "index.html": "/tca-raccoon-tycoon/index.html",
+    "main.8dbc2d21.css.map": "/tca-raccoon-tycoon/static/css/main.8dbc2d21.css.map",
+    "main.56f6c785.js.map": "/tca-raccoon-tycoon/static/js/main.56f6c785.js.map",
+    "787.54130e15.chunk.js.map": "/tca-raccoon-tycoon/static/js/787.54130e15.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8dbc2d21.css",
+    "static/js/main.56f6c785.js"
+  ]
+}
