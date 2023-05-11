@@ -30,12 +30,14 @@ export const Finish: React.FC<PlayProps> = ({
 
     return (
         <>
-            <h2>Finish</h2>
-            <p>Record winners, losers, and Victory Points</p>
+            <h2>Complete Game</h2>
+            <p>Who has emerged victorious?</p>
             {
               setupInfo.chosenPlayers.map(x => (
                 <Button
-                    onClick={() => endGame(x)}
+                    onClick={() => 
+                    endGame(x)}
+                    className="mb-3"
                 >{x} is the Raccoon Tycoon!
                 </Button>
               ))  

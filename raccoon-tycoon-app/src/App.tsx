@@ -4,12 +4,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Home } from './Home';
 import { Setup } from './Setup';
 import { Finish } from './Finish';
+import logo from './hat.png';
 
 import { 
   GameResult
   , CalculateLeaderboardFunc
   , calculateLeaderboard
-  , getPreviousPlayers 
+  , getPreviousPlayers
+  , SetupInfo 
 } from './front-end-model';
 
 import { 
@@ -114,26 +116,30 @@ const App = () => {
 
   return (
     <div className="App m-3">
+      <img src={logo} alt="logo" className="hat w-50" />
       <h1>
         TCA Raccoon Tycoon
       </h1>
       <h2>
         Companion App
       </h2>
+      <form>
       <Form.Group className="mb-3">
-        <Form.Label>Email address</Form.Label>
+        <Form.Label>Main Player Email:</Form.Label>
           <Form.Control 
             type="text"
-            placeholder="User email address"
+            placeholder="Main player email"
             value={emailKeyInput}
             onChange={(e) => setEmailKeyInput(e.target.value)} 
+            className="mb-3"
           />
             <Button
               onClick={saveEmailKey}
             >
               Save
             </Button>
-      </Form.Group>  
+      </Form.Group>
+      </form>  
       <hr />
       <HashRouter>
         <Routes>

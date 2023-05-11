@@ -16,12 +16,7 @@ export const Home: React.FC<HomeProps> = ({leaderboardData}) => {
 
     return (
         <>
-        <Button 
-            variant="primary"
-            onClick={() => nav("/setup")}    
-        >
-            Select Players
-        </Button>{' '}
+
         <Card className="mt-3 overflow-hidden">
             <Card.Header>
                 Leaderboard
@@ -58,6 +53,13 @@ export const Home: React.FC<HomeProps> = ({leaderboardData}) => {
                 }
             </Card.Body>
         </Card>
+        <Button 
+            variant="primary"
+            onClick={() => nav("/setup")}
+            className="mt-3"    
+        >
+            Select Players
+        </Button>{' '}
         </>
     );
   };

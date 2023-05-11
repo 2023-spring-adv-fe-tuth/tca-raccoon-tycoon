@@ -68,27 +68,30 @@ export const Setup: React.FC<SetupProps> = ({
             <h2>Players</h2>
             <p>Add new player/select player</p>
 
-            <Form className = "mt-5">
+            <Form className="mt-5">
                 <Form.Group className="mb-3">
                     <Form.Label>Add New Player</Form.Label>
                     <Form.Control 
                         type="text"
                         placeholder="Player name"
                         value={newPlayerName}
-                        onChange={(e) => setNewPlayerName(e.target.value)} 
+                        onChange={(e) => setNewPlayerName(e.target.value)}
+                        className="mb-3" 
                     />
                     <Button
                         onClick={validateAndAddNewPlayer}
                     >
                         Confirm
                     </Button>
-                </Form.Group>               
+                </Form.Group>     
+
                 {
                     chosenPlayers.map(x =>(
                         <Form.Check
                             label={x.name}
                             checked={x.checked}
-                            onChange={() => togglePlayer(x.name)} 
+                            onChange={() => togglePlayer(x.name)}
+                            className="Checks mb-3" 
                         />
                     ))
                 }
@@ -96,7 +99,7 @@ export const Setup: React.FC<SetupProps> = ({
 
             <Button 
                 variant="primary"
-                onClick={recordGame}    
+                onClick={recordGame} 
             >
                 Record Game
             </Button>{' '}
