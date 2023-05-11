@@ -56,7 +56,7 @@ export const Home: React.FC<HomeProps> = ({leaderboardData}) => {
         <Button 
             variant="primary"
             onClick={() => nav("/setup")}
-            className="mt-3"    
+            className="mt-3 btn-success"    
         >
             Select Players
         </Button>{' '}

@@ -99,7 +99,8 @@ export const Setup: React.FC<SetupProps> = ({
 
             <Button 
                 variant="primary"
-                onClick={recordGame} 
+                onClick={recordGame}
+                className="btn-success" 
             >
                 Record Game
             </Button>{' '}

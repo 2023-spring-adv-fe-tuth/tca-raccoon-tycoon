@@ -37,7 +37,7 @@ export const Finish: React.FC<PlayProps> = ({
                 <Button
                     onClick={() => 
                     endGame(x)}
-                    className="mb-3"
+                    className="mb-3 btn-lg"
                 >{x} is the Raccoon Tycoon!
                 </Button>
               ))  
